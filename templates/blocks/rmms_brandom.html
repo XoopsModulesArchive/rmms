@@ -1,0 +1,6 @@
+<center>
+<{foreach item=prod from=$block.rmcat_producto}>
+<a title="<{$prod.nombre}>" href="<{$xoops_url}>/modules/rmms/prods.php?idp=<{$prod.id}>"><img src="<{$prod.img}>" border="0"></a><br>
+<a href="<{$xoops_url}>/modules/rmms/prods.php?idp=<{$prod.id}>"><{$prod.nombre}></a>
+<{/foreach}>
+</center>

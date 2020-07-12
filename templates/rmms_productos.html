@@ -1,0 +1,73 @@
+<{popup_init src="/javascripts/overlib.js"}>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><h2><a href="index.php"><{$catalog_name}></a>
+            <hr>
+    </h2></td>
+  </tr>
+</table>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_navsearch.html"}><br>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_cbonav.html"}>
+<table border="0" align="center" cellpadding="0" cellspacing="1" class="outer">
+  <tr>
+    <th colspan="2"><{$lng_prod_title}></th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="<{$producto.img}>" border="0"><br>
+	<strong><{$producto.nombre}></strong>
+	</td>
+  </tr>
+  <tr class="head"><td>
+  	<{$lang_images}></td>
+  </tr>
+  <tr class="even" align="center">
+  	<td align="center">
+		<{foreach item=img from=$producto.images}>
+			<a href="javascript:;" title="<{$img.titulo}>" onclick='javascript:openWithSelfMain("<{$img.img}>","prodimg", <{$viewimg_width}>, <{$viewimg_height}>);'><{html_image file=$img.th}></a> 
+		<{/foreach}>
+	</td>
+  </tr>
+  <tr>
+    <td align="left">
+	<table style="width: auto; margin-right: 8px;" align="left"  border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+      <tr>
+        <td nowrap class="odd"><{$lng_codigo}></td>
+        <td nowrap class="even"><strong><{$producto.codigo}></strong></td>
+      </tr>
+	  <{if $show_price}>
+      <tr>
+        <td nowrap class="odd"><{$lng_precio}></td>
+        <td nowrap class="even"><strong><{$producto.precio}></strong></td>
+      </tr>
+	  <{/if}>
+      <tr>
+        <td nowrap class="odd"><{$lng_cantidad}></td>
+        <td nowrap class="even"><strong><{$producto.cantidad}></strong></td>
+      </tr>
+      <tr>
+        <td nowrap class="odd"><{$lng_medidas}></td>
+        <td nowrap class="even"><strong><{$producto.medidas}></strong></td>
+      </tr>
+      <tr>
+        <td nowrap class="odd"><{$lng_peso}></td>
+        <td nowrap class="even"><strong><{$producto.peso}></strong></td>
+      </tr>
+      <tr>
+        <td nowrap class="odd"><{$lng_minimo}></td>
+        <td nowrap class="even"><strong><{$producto.minimo}></strong></td>
+      </tr>
+	  <tr>
+	  	<td class="odd" align="right" colspan="2">
+		<span style="font-size: 10px;"><{$tax_legend}></span>
+		</td>
+	  </tr>
+      <tr align="center">
+        <td colspan="2" nowrap class="odd"><br>
+          <img src="images/moreinfo.gif" width="20" height="20" align="absmiddle"> <a href="moreinfo.php?idp=<{$producto.id}>"><{$lng_moreinfo}></a></td>
+        </tr>
+    </table>
+	<strong><{$lng_desc}></strong><br /><br />
+	<{$producto.desc}></td>
+  </tr>
+</table>
+<{$rmsoft_footer}>

@@ -1,0 +1,12 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+  <tr>
+    <td align="center"><a href="prods.php?idp=<{$prod.id}>" title="<{$prod.nombre}>"><img src="<{$prod.img}>" border="0" alt ="<{$prod.nombre}>" /></a></td>
+  </tr>
+  <tr>
+    <td align="center"><strong><a href="prods.php?idp=<{$prod.id}>" title="<{$prod.nombre}>"><{$prod.nombre}></a></strong><br />
+	<{$prod.desc}>
+	<{if $prod.precio!=''}>
+		<br /><strong><{$prod.precio}></strong>
+	<{/if}></td>
+  </tr>
+</table>

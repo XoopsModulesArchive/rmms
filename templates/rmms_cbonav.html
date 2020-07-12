@@ -1,0 +1,32 @@
+<!--<{*
+////////////////////////////////////////////////////////////////////////////////
+// $Id: rmms_cbonav.html,v 1.0 20/06/2005 16:55:00 AdminOne Exp $       //
+// ------------------------------------------------------------------------   //
+//                    RM+SOFT - Catalogo en Línea                             //
+//                  Copyright Red México Soft © 2005.                         //
+//                    <http:www.redmexico.com.mx/>                            //
+// ------------------------------------------------------------------------   //
+// Modulo para el control y presentación de productos en línea. Permite       //
+// organizar los productos en categorías, subcategorías, descripciones        //
+// precios, etc.                                                              //
+//                                                                            //
+// Para otros módulos o desarrollo personalizado por favor contactenos en     //
+// ventas@redmexico.com.mx. Si desea soporte con este módulo por favor        //
+// escriba a soporte@redmexico.com.mx o ingrese en nuestra página de internet //
+// www.redmexico.com.mx                                                       //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+*}>-->
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<form name="frmNav" id="frmNav">
+  <tr>
+    <td><{$lng_goto}>
+      <select name="scat" onChange="window.location = 'categos.php?idc=' + frmNav.scat.options[frmNav.scat.selectedIndex].value;">
+	   <option selected>Categorias...</option>
+	  <{foreach item=option from=$jumpnav}>
+	  <option value="<{$option.id}>"><{$option.nombre}></option>
+	  <{/foreach}>
+      </select></td>
+  </tr>
+ </form>
+</table>

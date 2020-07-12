@@ -1,0 +1,24 @@
+RMSOFT MiniSHop
+Módulo para creación de catálogos en línea
+http://www.redmexico.com.mx
+==========================================
+
+REQUERIMIENTOS
+------------------------
+  - RMSOFT Common Utilities 1.3
+  - GD2
+
+
+INSTALACIÓN
+------------------------
+ - Sube el directorio "rmms" al directorio "modules" de tu
+   instalación XOOPS.
+ - Ve al panel de control de XOOPS e instalalo
+
+
+ERRORES
+------------------------
+Reporta tus errores en el foro de XOOPS México dedicado
+a RMSOFT MiniShop
+
+http://www.xoopsmexico.net/modules/newbb/viewforum.php?forum=10

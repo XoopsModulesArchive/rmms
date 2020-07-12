@@ -1,0 +1,49 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><h2><a href="index.php"><{$catalog_name}></a><hr></h2></td>
+  </tr>
+</table>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_navsearch.html"}><br>
+<table width="100%"  border="0" cellspacing="1" cellpadding="2" class="outer">
+  <tr>
+    <th colspan="<{$max_cols}>" align="left"><{$lng_recent}></th>
+  </tr>
+  <tr>
+  <{assign var="i" value="1"}>
+  	<{foreach item=prod from=$prodnews}>
+	<{if $i>$max_cols }>
+		</tr>
+		<tr>
+		<{assign var="i" value="1"}>
+	<{/if}>
+    <td width="<{$col_width}>%" style="border-bottom: 1px solid #CCCCCC;" valign="top">
+	<{include file="db:rmms_prod.html"}>
+	</td>
+	<{assign var="i" value=$i+1}>
+	<{/foreach}>
+  </tr>
+</table><br />
+<table width="100%"  border="0" cellspacing="1" cellpadding="2" class="outer">
+  <tr align="left" valign="middle">
+    <th colspan="<{$total_catcols}>"><{$lng_categos}></th>
+  </tr>
+  <tr class="even">
+  <{assign var="i" value="1"}>
+  <{foreach item=catego from=$categos}>
+  <{if $i>$categos_cols}>
+	</tr>
+	<tr class="<{cycle values="odd,even"}>"> 
+	<{assign var="i" value="1"}> 
+  <{/if}>
+    <td align="left" valign="top">
+	<{if $catego.img!=''}>
+		<a href="categos.php?idc=<{$catego.id}>"><img src="<{$catego.img}>" width="<{$max_width}>" border="0"></a><br />
+	<{/if}>
+    <a href="categos.php?idc=<{$catego.id}>"><{$catego.nombre}></a><br>
+	<{$catego.desc}><br>
+	<{assign var="i" value=$i+1}>
+	<span style="font-size: 10px; font-weight: normal;"><{$catego.subcats}></span></td>
+  <{/foreach}> 
+  </tr>
+</table>
+<{$rmsoft_footer}>

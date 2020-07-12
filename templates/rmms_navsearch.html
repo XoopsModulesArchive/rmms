@@ -1,0 +1,15 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="4" class="outer">
+  <tr class="odd">
+  <form name="fmrSrh" method="post" action="search.php">
+    <td align="center"><{$lng_searchprods}> <input style="font-size: 11px" name="key" value="<{$key}>" type="text" id="key" size="15" maxlength="50">
+		 &nbsp;<select name='idc' style="font-size: 11px; border: 1px solid #CCCCCC; ">
+		    <option value="0"><{$lng_allcategos}></option>
+			<{foreach item=cat from=$jumpnav}>
+				<option value="<{$cat.id}>"><{$cat.nombre}></option>
+			<{/foreach}>
+		  </select>
+          <input type="submit" name="Submit" value="<{$lng_search}>"><br />
+		 </td>
+		  </form>
+  </tr>
+</table>

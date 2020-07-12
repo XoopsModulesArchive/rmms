@@ -1,0 +1,69 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><h2><a href="index.php"><{$catalog_name}></a>
+            <hr>
+    </h2></td>
+  </tr>
+</table>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_navsearch.html"}><br>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_cbonav.html"}>
+<br />
+<table width="100%"  border="0" cellspacing="1" cellpadding="4" class="outer">
+  <tr align="left" valign="middle">
+    <th colspan="4"><{$lng_prdexist}></th>
+  </tr>
+  <tr>
+  	<{assign var="i" value="1"}>
+	<{foreach item=prod from=$productos}>
+		<{if $i > $max_cols }>
+  </tr>
+			<tr>
+			<{assign var="i" value="1"}>
+		<{/if}>
+    	<td valign="top" style="border-bottom: 1px solid #CCCCCC;">
+		<{include file="db:rmms_prod.html"}></td>
+		<{assign var="i" value=$i+1}>
+	<{/foreach}>
+  </tr>
+<tr class="odd">
+  <td colspan="<{$max_cols}>" align="right" valign="top"><{$lng_totalpages}>&nbsp;<{$total_result}></td>
+  </tr>
+<tr>
+  <td colspan="<{$max_cols}>" align="right" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="50%">
+	  <form action="categos.php" method="get" name="frmItems">
+		<{$lng_prodxpage}> <select name="itemsxpag">
+			<{foreach item=item from=$itemsxpag}>
+				<option value="<{$item.num}>" <{$item.selected}>><{$item.num}></option>
+		<{/foreach}>
+		</select>
+		<input type="submit" name="Submit" value="<{$lang_go}>">
+		<input name="idc" type="hidden" id="idc" value="<{$catego_id}>">
+		</form>
+	  </td>
+      <td width="50%"><{$nav_pages}></td>
+    </tr>
+  </table> </td>
+</tr>
+</table><br />
+<{if $subcategos_num>0}>
+<table width="100%"  border="0" cellspacing="1" cellpadding="2" class="outer">
+  <tr align="left" valign="middle">
+    <th colspan="<{$total_catcols}>"><{$lng_subcategos}></th>
+  </tr>
+  <tr class="even"> 
+  <{assign var="i" value="1"}> <{foreach item=catego from=$categos}> 
+  	<{if $i>$categos_cols}> 
+		</tr> <tr class="<{cycle values="even,odd"}>"> 
+		<{assign var="i" value="1"}> 
+	<{/if}>
+      <td align="left" valign="top">
+	  <{if $catego.img!=''}><a href="categos.php?idc=<{$catego.id}>"><img src="<{$catego.img}>" width="<{$max_width}>" border="0" /></a><br /><{/if}>
+      <a href="categos.php?idc=<{$catego.id}>"><{$catego.nombre}></a><br />
+<{$catego.desc}><br>
+<{assign var="i" value=$i+1}> <span style="font-size: 10px; font-weight: normal;"><{$catego.subcats}></span></td>
+  <{/foreach}> </tr>
+</table>
+<{/if}>
+<{$rmsoft_footer}>

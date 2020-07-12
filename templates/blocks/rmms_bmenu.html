@@ -1,0 +1,11 @@
+<table cellpadding="0" cellspacing="0" border="0">
+<tr class="even"><td align="left">
+<a href="<{$xoops_url}>/modules/rmms/index.php">Catálogo</a>
+</td></tr>
+<{foreach item=menu from=$block.bcategos}>
+	<tr class="<{cycle values="odd,even"}>">
+	<td align="left">
+	<{$menu.saltos}><a href="<{$xoops_url}>/modules/rmms/categos.php?idc=<{$menu.id}>" style="font-weight: normal;"><{$menu.nombre}></a>
+	</td></tr>
+<{/foreach}>
+</table>

@@ -1,0 +1,50 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><h2><a href="index.php"><{$catalog_name}></a>
+            <hr>
+    </h2></td>
+  </tr>
+</table>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_navsearch.html"}><br>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_cbonav.html"}>
+<table width="100%"  border="0" cellspacing="1" cellpadding="2" class="outer">
+  <tr align="left" valign="middle">
+    <th colspan="4"><{$lng_resultslist}></th>
+  </tr>
+  <tr class="even">
+  	<{assign var="i" value="1"}>
+	<{foreach item=prod from=$productos}>
+		<{if $i > $max_cols }>
+			</tr>
+			<tr class="<{cycle values="odd,even"}>">
+			<{assign var="i" value="1"}>
+		<{/if}>
+    	<td valign="top" width="<{$col_width}>%">
+    	<{include file="db:rmms_prod.html"}></td>
+		<{assign var="i" value=$i+1}>
+	<{/foreach}>
+  </tr>
+<tr class="odd">
+  <td colspan="<{$max_cols}>" align="right" valign="top"><{$lng_totalpages}>&nbsp;<{$lng_founded}></td>
+  </tr>
+<tr>
+  <td colspan="<{$max_cols}>" align="right" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="50%">
+	  <form action="search.php" method="get" name="frmItems">
+		<{$lng_prodxpage}> <select name="itemsxpag">
+			<{foreach item=item from=$itemsxpag}>
+				<option value="<{$item.num}>" <{$item.selected}>><{$item.num}></option>
+		<{/foreach}>
+		</select>
+		<input type="submit" name="Submit" value="<{$lang_go}>">
+		<input name="idc" type="hidden" id="idc" value="<{$catego_id}>">
+		<input type="hidden" name="key" value="<{$key}>">
+		</form>
+	  </td>
+      <td width="50%"><{$nav_pages}></td>
+    </tr>
+  </table> </td>
+</tr>
+</table>
+<{$rmsoft_footer}>

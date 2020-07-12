@@ -1,0 +1,52 @@
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><h2><a href="index.php"><{$catalog_name}></a>
+            <hr>
+    </h2></td>
+  </tr>
+</table>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_navsearch.html"}><br>
+<{include file="$xoops_rootpath/modules/$xoops_dirname/templates/rmms_cbonav.html"}><br>
+<table width="100%"  border="0" cellspacing="1" cellpadding="0" class="outer">
+  <tr>
+    <th colspan="2"><{$lng_requireinfo}></th>
+  </tr>
+  <form name="frmSend" method="post" action="send.php">
+  <tr>
+    <td align="left" class="even"><{$lng_prodname}></td>
+    <td class="odd"><strong><{$producto.nombre}></strong>
+	<input type="hidden" name="producto" value="<{$producto.nombre}>"></td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_codigo}></td>
+    <td class="odd"><strong><{$producto.codigo}></strong>
+	<input type="hidden" name="codigo" value="<{$producto.codigo}>">
+	<input type="hidden" name="idp" value="<{$producto.id}>"></td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_yourname}></td>
+    <td class="odd"><input type="text" size="30" name="nombre">*</td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_company}></td>
+    <td class="odd"><input type="text" size="30" name="empresa"></td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_yourmail}></td>
+    <td class="odd"><input type="text" size="30" name="mail">*</td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_tel}></td>
+    <td class="odd"><input type="text" size="30" name="tel">*</td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_comment}></td>
+    <td class="odd"><textarea name="comentarios" cols="30" rows="5"></textarea></td>
+  </tr>
+  <tr>
+    <td align="left" class="even"><{$lng_camposreq}></td>
+    <td class="odd"><input type="submit" name="sbt" value="Enviar"></td>
+  </tr>
+  </form>
+</table>
+<{$rmsoft_footer}>
